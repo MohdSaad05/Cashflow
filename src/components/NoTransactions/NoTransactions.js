@@ -10,6 +10,7 @@ function NoTransactions() {
         width:"100%",
         flexDirection:"column",
         marginBottom:"2rem",
+        alignItems:"center",
       }}
     >
     <img src={transactions} style={{width:"400px",margin:"4rem"}}/>

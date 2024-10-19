@@ -11,7 +11,7 @@ function AddIncomeModal({
      <Modal 
      style={{fontWeight: 600}}
      title="Add Income"
-     visible={isIncomeModelVisible}
+     open={isIncomeModelVisible}
      onCancel={handleIncomeCancel}
      footer={null}
      >
@@ -55,7 +55,7 @@ function AddIncomeModal({
          rules={[
             {
                 required:true,
-                message: "Please select the expexse data!",
+                message: "Please select the income data!",
             },
          ]}
       >

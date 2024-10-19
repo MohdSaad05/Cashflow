@@ -160,20 +160,20 @@ function SignupSigninComponent() {
             label={"Email Adderss"} 
             state={email}
             setState={setEmail}
-            placeholder={"shad@gmail.com"} />
+            placeholder={"sample@gmail.com"} />
              <Input 
              type="password" 
             label={"Password"} 
             state={password}
             setState={setPassword}
-            placeholder={"Example@123"} />
+            placeholder={"example@123"} />
 
             <Button 
                disabled ={loading}
             text={loading? "Loading...":"Login Using Email and Password"} onClick={loginUsingEmail}/>
             <p className="p-login"
             style={{cursor: "pointer"}}
-            onClick={()=> setLoginForm(!loginForm)}>or Don't Have An Account? Click Here</p>
+            onClick={()=> setLoginForm(!loginForm)}>or Don't Have An Account? <span style={{color:"red"}}>Click Here</span></p>
 
             <Button 
             onClick={googleAuth}
@@ -190,25 +190,25 @@ function SignupSigninComponent() {
             label={"Full Name"} 
             state={name}
             setState={setName}
-            placeholder={"Shad Mirza"} />
+            placeholder={"Your answer"} />
              <Input 
              type="email"
             label={"Email Adderss"} 
             state={email}
             setState={setEmail}
-            placeholder={"shad@gmail.com"} />
+            placeholder={"sample@gmail.com"} />
              <Input 
              type="password" 
             label={"Password"} 
             state={password}
             setState={setPassword}
-            placeholder={"Example@123"} />
+            placeholder={"example@123"} />
              <Input 
              type="password"
             label={"Confirm Password"} 
             state={confirmPassword}
             setState={setConfirmPassword}
-            placeholder={"Example@123"} />
+            placeholder={"example@123"} />
 
             <Button 
                disabled ={loading}
@@ -221,7 +221,7 @@ function SignupSigninComponent() {
             <p className="p-login"
             style={{cursor: "pointer"}}
             onClick={()=> setLoginForm(!loginForm)}>
-            or Have An Account Already ? Click Here </p>
+            or Have An Account Already ? <span style={{color:"red"}}>Click Here</span> </p>
      </form>
       </div>
       )  

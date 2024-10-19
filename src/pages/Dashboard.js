@@ -58,7 +58,7 @@ function Dashboard() {
          
     const newTransaction={
       type: type,
-      date: moment(values.date).format("YYYY-MM-DD"),
+      date: values.date.format("YYYY-MM-DD"),
       amount: parseFloat(values.amount),
       tag:values.tag,
       name: values.name,
@@ -130,10 +130,33 @@ function Dashboard() {
     // }
     setLoading(false);
    }
-  let sortedTransactions=transactions.sort((a,b)=>{
+  let sortedTransactions=[...transactions].sort((a,b)=>{
   
-        return new Date(a.date) - new Date(b.date);
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
     })
+
+    async function reset() {
+      try {
+        // Delete all transactions
+        const q = query(collection(db, `users/${user.uid}/transactions`));
+        const querySnapshot = await getDocs(q);
+        
+        const deletePromises = querySnapshot.docs.map(doc => doc.ref.delete());
+        await Promise.all(deletePromises);
+    
+        // Clear local state
+        setTransactions([]);
+        setIncome(0);
+        setExpenses(0);
+        setTotalBalance(0);
+    
+        toast.success("All data has been reset!");
+      } catch (e) {
+        console.error("Error resetting data: ", e);
+        toast.error("Couldn't reset data");
+      }
+    }
+    
   return (
     <div>
       <Header/>
@@ -144,7 +167,8 @@ function Dashboard() {
             expense={expense}
             totalBalance={totalBalance}
              showExpenseModel={showExpenseModel}
-             showIncomeModel={showIncomeModel }
+             showIncomeModel={showIncomeModel}
+             reset={reset}
           
       />
      

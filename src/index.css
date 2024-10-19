@@ -2,10 +2,18 @@
 
 :root{
   /* --green:#61c96f; */
-  /* --theme: #2970ff; */
-  --theme: #61c96f;
+ 
+  
+
+  --grey:#888;
+  --darkgrey:#1b1b1b;
+  --green:#61c96f;
+  --red:#f94141;
+  --theme: #2970ff;
+  /* --theme: #61c96f; */
   --black: #000;
   --white: #fff;
+  --blue: #3a80e9;
   --shadow: 0px 0px 30px 8px rgba(227,227,227,0.75);
 }
 

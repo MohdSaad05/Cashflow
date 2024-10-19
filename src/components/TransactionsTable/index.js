@@ -80,9 +80,9 @@ function importFromCsv(event) {
 let filteredTransactions = transactions.filter((item)=>item.name.toLowerCase().includes(search.toLowerCase()) && 
 item.type.includes(typeFilter));
 
-let sortedTransactions = filteredTransactions.sort((a,b)=>{
+let sortedTransactions = [...filteredTransactions].sort((a,b)=>{
     if(sortKey === "date"){
-        return new Date(a.date) - new Date(b.date);
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
     }else if(sortKey === "amount"){
         return a.amount - b.amount;
     }else{
@@ -90,10 +90,10 @@ let sortedTransactions = filteredTransactions.sort((a,b)=>{
     }
 });
 
-// let dateSource = sortedTransactions.map((transaction,index)=>({
-//        key : index,
-//        transaction,
-// }))
+let dataSource = sortedTransactions.map((transaction,index)=>({
+       key : index,
+       ...transaction,
+}))
   return (
     <div
     style={{
@@ -148,7 +148,7 @@ let sortedTransactions = filteredTransactions.sort((a,b)=>{
          value={sortKey}
         >
          <Radio.Button value="">No Sort</Radio.Button>
-         <Radio.Button value="data">Sort by Date</Radio.Button>
+         <Radio.Button value="date">Sort by Date</Radio.Button>
          <Radio.Button value="amount">Sort bu Amount</Radio.Button>
         </Radio.Group>
         <div
@@ -170,7 +170,7 @@ let sortedTransactions = filteredTransactions.sort((a,b)=>{
                 />
          </div>
         </div>
-      <Table dataSource={filteredTransactions} columns={columns}/>
+      <Table dataSource={dataSource} columns={columns}/>
       </div>
       </div>
   )

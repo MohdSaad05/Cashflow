@@ -4,14 +4,14 @@ import {Card,Row} from "antd";
 import Button from "../Button";
 
 function Cards({ 
-    income, expense,totalBalance,showExpenseModel , showIncomeModel}) {
+    income, expense,totalBalance,showExpenseModel , showIncomeModel,reset}) {
   return (
     <div>
         <Row className='my-row'>
         <Card className="my-card" bordered={true}>
             <h2>Current Balance</h2>
         <p>₹{totalBalance}</p>
-        <Button text="Reset Balance" blue={true}/>
+        <Button text="Reset Balance" blue={true} onClick={reset}/>
         </Card>
         <Card className="my-card" bordered={true}>
             <h2>Total Income</h2>
