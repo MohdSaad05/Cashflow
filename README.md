@@ -4,7 +4,7 @@ A web-based application designed to help users manage their cash flow, track tra
 
 
 
-#Features
+# Features
 
 User Authentication: Secure login system using Firebase Authentication.
 Transaction Management: Add, edit, delete, and view all your financial transactions.
@@ -14,11 +14,11 @@ Responsive Design: Mobile-friendly interface with Ant Design components.
 Toast Notifications: Success or error alerts using React Toastify.
 Financial Analytics: Visualize cash flow trends and categories over time.
 
-#Technologies Used
+# Technologies Used
 
 Frontend: React, Ant Design, React Router, React Toastify
 Backend: Firebase (Firestore, Authentication)
 Database: Firebase Firestore
 Styling: CSS, Ant Design
 
-#Project Screenshots
+# Project Screenshots
